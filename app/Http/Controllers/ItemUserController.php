@@ -8,13 +8,13 @@ use App\Http\Controllers\Controller;
 
 use App\Item;
 
+
 class ItemUserController extends Controller
 {
     public function want()
     {
         $itemCode = request()->itemCode;
 
-        // Search items from "itemCode"
         $client = new \RakutenRws_Client();
         $client->setApplicationId(env('RAKUTEN_APPLICATION_ID'));
         $rws_response = $client->execute('IchibaItemSearch', [
